@@ -1,1 +1,11 @@
-<p>songs works!</p>
+<songify-workspace-songs-list
+  [songs]="songs"
+  (selected)="selectSong($event)"
+  (deleted)="deleteSong($event)">
+</songify-workspace-songs-list>
+
+<songify-workspace-songs-details
+  [song]="selectetSong"
+  (saved)="saveSong($event)"
+  (cancelled)="resetSongDetails()">
+</songify-workspace-songs-details>

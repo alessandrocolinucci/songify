@@ -1,6 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@songify-workspace/api-interfaces';
 
 @Component({
   selector: 'songify-workspace-root',
@@ -8,6 +7,12 @@ import { Message } from '@songify-workspace/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+
+  links = [
+    { path: '/', icon: 'home', title: 'Home' },
+    { path: '/songs', icon: 'view_list', title: 'Songs' },
+  ];
+
+  constructor() {}
+
 }

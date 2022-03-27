@@ -1,0 +1,19 @@
+mat-toolbar {
+  button {
+    margin-right: 1rem;
+  }
+}
+
+mat-sidenav {
+
+  width: 18rem;
+
+  &-container {
+    height: 100%;
+
+    .container {
+      padding: 2rem;
+    }
+  }
+
+}
