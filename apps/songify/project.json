@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/songify",
+  "sourceRoot": "apps/songify/src",
+  "prefix": "songify-workspace",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/songify",
+        "index": "apps/songify/src/index.html",
+        "main": "apps/songify/src/main.ts",
+        "polyfills": "apps/songify/src/polyfills.ts",
+        "tsConfig": "apps/songify/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/songify/src/favicon.ico", "apps/songify/src/assets"],
+        "styles": ["apps/songify/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/songify/src/environments/environment.ts",
+              "with": "apps/songify/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "songify:build:production"
+        },
+        "development": {
+          "browserTarget": "songify:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/songify/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "songify:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/songify/src/**/*.ts",
+          "apps/songify/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/songify"],
+      "options": {
+        "jestConfig": "apps/songify/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

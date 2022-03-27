@@ -1,0 +1,28 @@
+{
+  "root": "apps/songify-e2e",
+  "sourceRoot": "apps/songify-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/songify-e2e/cypress.json",
+        "devServerTarget": "songify:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "songify:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/songify-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["songify"]
+}
