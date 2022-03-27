@@ -1,3 +1,4 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { CoreStateModule } from '@songify-workspace/core-state';
 import { CoreDataModule } from '@songify-workspace/core-data';
 import { MaterialModule } from '@songify-workspace/material';
+import { UiToolbarModule } from 'libs/ui-toolbar/src';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,9 @@ import { MaterialModule } from '@songify-workspace/material';
     MaterialModule,
     CoreDataModule,
     CoreStateModule,
+    UiToolbarModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [

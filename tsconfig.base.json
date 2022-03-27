@@ -18,7 +18,8 @@
       "@songify-workspace/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@songify-workspace/core-data": ["libs/core-data/src/index.ts"],
       "@songify-workspace/core-state": ["libs/core-state/src/index.ts"],
-      "@songify-workspace/material": ["libs/material/src/index.ts"]
+      "@songify-workspace/material": ["libs/material/src/index.ts"],
+      "@songify-workspace/ui-toolbar": ["libs/ui-toolbar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
