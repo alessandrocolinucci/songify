@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Song } from '@songify-workspace/api-interfaces';
 import { Observable } from 'rxjs';
 
-export const ENDPOINT = 'http://localhost:3000/songs';
+export const ENDPOINT = 'http://localhost:3333/api/songs';
 
 @Injectable({
   providedIn: 'root'

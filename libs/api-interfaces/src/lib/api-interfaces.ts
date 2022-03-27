@@ -1,5 +1,5 @@
 export interface BaseEntity {
-  id: number | null;
+  id: string | null;
 }
 
 export interface Song extends BaseEntity {

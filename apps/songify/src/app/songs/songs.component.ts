@@ -2,6 +2,7 @@
 import { Song } from '@songify-workspace/api-interfaces';
 import { Component, OnInit } from '@angular/core';
 import { SongService } from '@songify-workspace/core-data';
+import { Observable } from 'rxjs';
 
 const EMPTY_SONG = {
   id: null,
@@ -16,7 +17,7 @@ const EMPTY_SONG = {
 })
 export class SongsComponent implements OnInit {
 
-  songs: Song[];
+  songs$: Observable<Song[]>;
   selectetSong: Song;
 
   constructor(
@@ -24,8 +25,12 @@ export class SongsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.songService.getAll().subscribe(songs => this.songs = songs);
+    this.getSongs();
     this.selectetSong = EMPTY_SONG;
+  }
+
+  getSongs(): void {
+    this.songs$ = this.songService.getAll();
   }
 
   selectSong(song: Song): void {
@@ -33,36 +38,24 @@ export class SongsComponent implements OnInit {
   }
 
   deleteSong(song: Song): void {
-    this.songs = this.songs.filter((w) => song.id !== w.id);
-    this.selectetSong = EMPTY_SONG;
+    this.songService.delete(song).subscribe(() => this.getSongs());
   }
 
   saveSong(song: Song): void {
     song.id ? this.updateSong(song) : this.createSong(song);
-  }
-
-  updateSong(song: Song): void {
-    this.songs = this.songs.map((w) => song.id === w.id ? song : w);
     this.resetSongDetails();
   }
 
   createSong(song: Song): void {
-    const newSong: Song = {
-      id: this.getRandomID(),
-      title: song.title,
-      author: song.author,
-      url: song.url
-    };
-    this.songs = [...this.songs, newSong];
-    this.resetSongDetails();
+    this.songService.create(song).subscribe(() => this.getSongs());
+  }
+
+  updateSong(song: Song): void {
+    this.songService.update(song).subscribe(() => this.getSongs());
   }
 
   resetSongDetails(): void {
     this.selectetSong = EMPTY_SONG;
-  }
-
-  private getRandomID(): number {
-    return Math.floor(Math.random() * 999999999999);
   }
 
 }

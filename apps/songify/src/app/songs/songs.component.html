@@ -1,5 +1,5 @@
 <songify-workspace-songs-list
-  [songs]="songs"
+  [songs]="songs$ | async"
   (selected)="selectSong($event)"
   (deleted)="deleteSong($event)">
 </songify-workspace-songs-list>
