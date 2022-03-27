@@ -1,12 +1,9 @@
-export interface Message {
-  message: string;
-}
-
 export interface BaseEntity {
-  id: string | null;
+  id: number | null;
 }
 
 export interface Song extends BaseEntity {
   title: string;
-  description: string;
+  author: string;
+  url: string;
 }

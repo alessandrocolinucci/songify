@@ -9,9 +9,23 @@
         (click)="selected.emit(song)"
       >
 
-        <span matLine attr.data-cy="song-{{ song.id }}-item-title">
-          {{ song.title }}
-        </span>
+        <h2 matLine attr.data-cy="song-{{ song.id }}-item-title">
+          <strong>{{ song.title }}</strong>
+        </h2>
+        <small matLine><i>{{ song.author }}</i></small>
+
+        <a
+          *ngIf="song.url"
+          attr.data-cy="play-song-{{ song.id }}-btn"
+          mat-icon-button
+          type="button"
+          color="success"
+          target="_blank"
+          (click)="$event.stopImmediatePropagation()"
+          [href]="song.url"
+        >
+          <mat-icon>play_circle</mat-icon>
+        </a>
 
         <button
           *ngIf="!readonly"

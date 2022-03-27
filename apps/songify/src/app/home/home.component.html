@@ -1,5 +1,5 @@
 <div class="component-container">
   <div class="list-component">
-    <songify-workspace-songs-list [songs]="songs" [readonly]="true"></songify-workspace-songs-list>
+    <songify-workspace-songs-list [songs]="songs$ | async" [readonly]="true"></songify-workspace-songs-list>
   </div>
 </div>

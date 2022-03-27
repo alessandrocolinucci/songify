@@ -23,11 +23,21 @@
       <mat-form-field>
         <input
           matInput
-          placeholder="Description"
-          [(ngModel)]="currentSong.description"
+          placeholder="Author"
+          [(ngModel)]="currentSong.author"
           type="text"
-          name="description"
+          name="author"
           required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Song Spotify URL"
+          [(ngModel)]="currentSong.url"
+          type="text"
+          name="url"
         />
       </mat-form-field>
     </mat-card-content>

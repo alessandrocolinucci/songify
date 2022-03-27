@@ -1,0 +1,22 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Snow (Hey Oh)",
+      "author": "Red Hot Chili Peppers",
+      "url": "https://open.spotify.com/track/2aibwv5hGXSgw7Yru8IYTO?si=41555971285b4fce"
+    },
+    {
+      "id": 2,
+      "title": "Fortunate Son",
+      "author": "Creedence Clearwater Revival",
+      "url": "https://open.spotify.com/track/4BP3uh0hFLFRb5cjsgLqDh?si=32af7360a27b486e"
+    },
+    {
+      "id": 3,
+      "title": "Diamonds on the Inside",
+      "author": "Ben Harper",
+      "url": "https://open.spotify.com/track/6FvtSHS3hzjS8itHJPRzoJ?si=45f10ab7e55c461a"
+    }
+  ]
+}
