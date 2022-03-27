@@ -9,7 +9,11 @@ import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 const configureSwagger = (app) => {
-  const options = new DocumentBuilder().setTitle('Songify Workspace with Nx').setDescription('Songify REST API with NestJS').setVersion('1.0').build();
+  const options = new DocumentBuilder()
+    .setTitle('Songify Workspace with Nx')
+    .setDescription('Songify REST API with NestJS')
+    .setVersion('1.0')
+    .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
 }
@@ -22,9 +26,7 @@ async function bootstrap() {
   configureSwagger(app);
   const port = process.env.PORT || 3333;
   await app.listen(port);
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
-  );
+  Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);
 }
 
 bootstrap();
